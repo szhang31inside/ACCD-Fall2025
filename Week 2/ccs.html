@@ -1,0 +1,124 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    @font-face {
+    font-family: "MyCustomFont";
+    src: url("./BitcountSingleInk-VariableFont_CRSV\,ELSH\,ELXP\,SZP1\,SZP2\,XPN1\,XPN2\,YPN1\,YPN2\,slnt\,wght.ttf") format("truetype");
+    font-weight: normal;
+   font-style: normal;
+   font-display: swap; /* Improves perceived loading performance */
+   }
+
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+    
+
+        }
+        header {
+            background-color: rgb(185, 137, 230);
+        }
+
+        nav ul{
+            margin: 0;
+            padding: 20px;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 20px auto;
+            text-align: center;
+            border-bottom: 2px solid black; 
+            padding-bottom: 15px;
+            
+        }
+
+        nav ul li:last-child {
+            border-bottom: none;
+        }
+ 
+        nav ul li a {
+            text-decoration: none;
+            color: black;
+            text-transform: uppercase;
+        }
+
+
+        @media (min-width:768px) {
+
+            nav {
+                background-color: aqua;
+                font-family: "MyCustomFont";
+            }
+
+            nav ul {
+                display: flex;
+                justify-content: flex-start;
+            }
+            nav ul li {
+                border-bottom: none;
+                margin: 10px;
+                padding: 0;
+            }
+        }
+
+        @media (min-width:1000px) {
+
+            nav {
+                background-color: red;
+                font-family: 'Courier New', Courier, monospace;
+            }
+
+            nav ul {
+                display: flex;
+                justify-content: center;
+            }
+            nav ul li {
+                border-bottom: none;
+                margin: 10px;
+                padding: 0;
+            }
+        }
+
+        @media (min-width:1500px) {
+
+            nav {
+                background-color: pink;
+                font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            }
+
+            nav ul {
+                display: flex;
+                justify-content: flex-end;
+            }
+            nav ul li {
+                border-bottom: none;
+                margin: 10px;
+                padding: 0;
+            }
+        }
+ 
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Work</a></li>
+                <li><a class="active cursive another-class"><a href="#">BLOG</a></li>
+                <li><a href="#">Resume</a></li>
+            </ul>
+         <nav>
+    <header>
+    <main>
+    </main>
+<footer></footer>
+</body>
+</html>
