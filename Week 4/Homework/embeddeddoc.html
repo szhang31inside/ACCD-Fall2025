@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>This is my sketch</h1>
+    Problems I encountered:
+
+The images (happy & angry) weren't linked correctly.
+The website didn't show anything until I changed the radius to diameter.
+The sound only worked when I pressed the mouse.
+One specific problem I encountered was with the MP3 soundtrack, it only played when I clicked on the screen. I looked up tutorials on YouTube and discovered that I had placed sound.play() at the bottom of the code instead of inside the function draw(). After moving it there, the sound started to play automatically whenever the emoji changed (when it touched the edge).
+
+To make it from a linear movement to a non-linear movement, I added two lines in the code: 
+  velX += random(-0.5, 0.5); 
+  velY += random(-0.5, 0.5);
+  so it makes the speed to fluctuate randomly.
+    
+</body>
+</html>

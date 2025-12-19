@@ -42,6 +42,9 @@ function draw() {
   circle(posX, posY, diameter)
   image(currentImg, posX, posY, diameter, diameter)
 
+  velX += random(-0.5, 0.5); 
+  velY += random(-0.5, 0.5);
+
   posX = posX + velX
   posY += velY
       
