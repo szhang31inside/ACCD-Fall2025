@@ -1,0 +1,16 @@
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+canvas {
+  display: block;
+}
+
+img {
+  width: 100px;      /* 这里控制大小 */
+  height: auto;    
+  margin: 10px;     
+  border-radius: 8px; 
+}
