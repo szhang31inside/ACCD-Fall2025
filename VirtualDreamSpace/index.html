@@ -3,89 +3,144 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sky Lighter Project</title>
+    <title>Virtual Dream Space | Unity Project</title>
     <style>
+        :root {
+            --bg-color: #f8f9fa;
+            --text-main: #2c3e50;
+            --text-muted: #5d6d7e;
+            --accent: #3498db;
+        }
+
         body {
             display: flex;
             flex-direction: column;
             align-items: center; 
-            background-color: #f4f4f4; 
-            padding: 40px 20px;
-            font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
-            color: #333;
+            background-color: var(--bg-color); 
+            padding: 60px 20px;
+            font-family: "Inter", "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            color: var(--text-main);
+            line-height: 1.7;
+        }
+
+        /* Expanded container for larger images */
+        .container {
+            max-width: 1100px;
+            width: 100%;
         }
 
         h1 {
             font-weight: 200;
-            letter-spacing: 3px;
+            letter-spacing: 5px;
             text-transform: uppercase;
-            margin-bottom: 50px;
-            padding-bottom: 10px;
+            margin-bottom: 60px;
+            text-align: center;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 20px;
+        }
+
+        .intro-text {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            text-align: c;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         h3 {
-            font-weight: 500;
+            font-weight: 600;
             letter-spacing: 1px;
-            margin-top: 40px;
-            margin-bottom: 20px;
-            color: #555;
-            width: 100%;
-            max-width: 800px;
-            text-align: left;
+            margin-top: 60px;
+            margin-bottom: 25px;
+            color: var(--text-main);
+            text-transform: capitalize;
+            display: flex;
+            align-items: center;
         }
 
+        h3::before {
+            content: "";
+            width: 4px;
+            height: 24px;
+            background-color: var(--accent);
+            margin-right: 12px;
+            display: inline-block;
+        }
+
+        /* Image Styling */
         img {
-            max-width: 800px;
             width: 100%;   
             height: auto;    
-            margin-bottom: 40px; 
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08); 
-            border-radius: 4px; 
+            margin-bottom: 30px; 
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1); 
+            border-radius: 8px; 
             background-color: #fff;
+            transition: transform 0.3s ease;
         }
 
-        @media (max-width: 600px) {
-            h1 { font-size: 1.4rem; letter-spacing: 2px; }
-            h3 { font-size: 1.1rem; }
+        /* Subtle hover effect for images */
+        img:hover {
+            transform: translateY(-5px);
+        }
+
+        /* Section spacing */
+        section {
+            margin-bottom: 80px;
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 1.6rem; letter-spacing: 3px; }
+            .container { width: 95%; }
         }
     </style>
 </head>
 <body>
 
-    <h1>Virtual Dream Space</h1>
+    <div class="container">
+        <h1>Virtual Dream Space</h1>
 
-        <h3>My Space</h3>
-    <img src="00.png" alt="Perspective View">
-    <img src="22.png" alt="Perspective View">
-      <img src="11.png" alt="Perspective View">
-  
+        <section>
+            <h3>Overview</h3>
+            <p>This scene is set in a deep, infinite void, inspired by the isolation of a distant lunar landscape. An uneven terrain stretches across the space, interrupted by a few constructed elements. I also included a control tower, a geometric dome, and scattered mechanical objects. The scene explores the contrast between natural forms and artificial structures.</p>
+     
+            <img src="11.png" alt="Idea Sketch">
+            <img src="22.png" alt="Idea Sketch">
+        </section>
 
-    <h3>Sketch</h3>
-    <img src="sketch.jpg" alt="Idea Sketch">
+        <section>
+            <h3>Concept Sketch</h3>
+            <p>The initial sketch reflects my early idea of the space I wanted to create. I also looked at reference images from NASA to better understand what elements to include and how the environment could feel.</p>
+            <img src="sketch.jpg" alt="Idea Sketch">
+        </section>
 
-    <h3>Building Process</h3>
-    <img src="1.png" alt="Setting Up the Terrain">
+        <section>
+            <h3>Building Process: Terrain & Assets</h3>
+            <p>Using Unity's Terrain tools, I drew and sculptured the terrain to create a uneven surface (tried to make it different than the envrionment on earth).</p>
+            <img src="1.png" alt="Setting Up the Terrain">
+            <p>Then, I downloaded a space asset from the Unity Asset Store and explored placing different objects into the scene. I also added a space sky map to emphasize the environment. During the process, I mainly explored the sizes of different objects.</p>
+            <img src="3.png" alt="Adding Details - Modeling">
+            <img src="2.png" alt="Adding Details - Placement">
+        </section>
 
-             <h3>Adding Models</h3>
-    <img src="3.png" alt="Adding Details">
-     <img src="2.png" alt="Adding Details">
+        <section>
+            <h3>Setting up Cameras & Interactive System</h3>
+            <p>To ground the player in the experience, I implemented first-person controls in the scene. This allows for immersive exploration from a 1:1 human perspective. I also added a second camera to provide a general view of the space, allowing me to switch between first-person and overview modes as needed.</p>
+            <img src="4.png" alt="Controls Setup">
+            <img src="5.png" alt="Scripting Interaction">
+              <p>After adjusting the cameras, I created an UI interface before the player can enter my space.</p>
+            <img src="6.png" alt="UI Interface Start Menu">
+            <p>Now, the player needs to press "START" to unlock my scene. I think this created a more mysterious atmosphere.</p>
+            <img src="00.png" alt="Final Transition to Play">
+        </section>
 
-              <h3>Setting Up First Person Controls</h3>
-       <img src="4.png" alt="Adding Details">
-           <img src="5.png" alt="Adding Details">
-        
+        <section>
+            <h3>First-Person Perspective</h3>
+            <p>From the astronaut's point of view, the scale of the environment becomes apparent.</p>
+            <img src="44.png" alt="Close-up Detail Shot">
+            <img src="33.png" alt="First Person View 1">
+            <img src="55.png" alt="First Person View 2">
+        </section>
 
-    <h3>UI Interface - Click Start to Play</h3>
-    <img src="6.png" alt="Perspective View">
-    <img src="00.png" alt="Perspective View">
-
-    <h3>First Person View</h3>
-    <img src="44.png" alt="Detail Shot">
-      <img src="33.png" alt="Final Render">
-    <img src="55.png" alt="Final Render">
-
-        <h3>Space Completed</h3>
-           <img src="7.png" alt="Final Render">
-    
-</body>
-</html>
+      
