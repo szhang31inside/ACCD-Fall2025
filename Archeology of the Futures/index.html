@@ -13,6 +13,13 @@
             padding: 40px 20px;
             font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
             color: #333;
+            line-height: 1.6;
+        }
+
+        /* Container increased to 1100px for larger images */
+        .container {
+            max-width: 1100px; 
+            width: 100%;
         }
 
         h1 {
@@ -20,28 +27,50 @@
             letter-spacing: 3px;
             text-transform: uppercase;
             margin-bottom: 50px;
-            padding-bottom: 10px;
+            text-align: center;
         }
 
         h3 {
-            font-weight: 500;
+            font-weight: 600;
             letter-spacing: 1px;
             margin-top: 40px;
-            margin-bottom: 20px;
-            color: #555;
-            width: 100%;
-            max-width: 800px;
-            text-align: left;
+            margin-bottom: 15px;
+            color: #2c3e50;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 5px;
         }
 
+        p {
+            font-size: 1.05rem; /* Slightly larger text to match larger images */
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        ul {
+            margin-bottom: 30px;
+        }
+
+        li {
+            margin-bottom: 10px;
+            color: #555;
+            font-size: 1rem;
+        }
+
+        /* --- Image Styling (Now Full Width) --- */
         img {
-            max-width: 800px;
             width: 100%;   
+            max-width: 100%; /* Removes the 800px cap */
             height: auto;    
-            margin-bottom: 40px; 
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08); 
+            display: block;
+            margin: 20px auto 60px auto; /* Centered with a larger bottom gap */
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12); /* Increased shadow for scale */
             border-radius: 4px; 
             background-color: #fff;
+        }
+
+        .highlight {
+            color: #34495e;
+            font-weight: 500;
         }
 
         @media (max-width: 600px) {
@@ -52,21 +81,59 @@
 </head>
 <body>
 
-    <h1>Archeology of the Futures</h1>
+    <div class="container">
+        <h1>Archeology of the Futures</h1>
 
-    <h3>2D Matrix</h3>
-    <img src="01.jpg" alt="Sky Lighter Overview">
+        <h3>Concept: The 2D Matrix</h3>
+        <img src="01.jpg" alt="Sky Lighter Overview Matrix">
 
-    <h3>Inspiration & Ideas</h3>
-    <img src="02.jpg" alt="Technical Side View">
-    <img src="03.jpg" alt="Top View">
+        <h3>Inspiration</h3>
+        <p>My design inspiration comes from the unique "polar night" phenomenon within the Arctic Circle, such as in Tromsø, Norway. Every year, from the end of November to mid-January, the city is surrounded in darkness for a long periods, with residents experiencing only glimpses of weak sunlight even at midday. This lack of sunlight not only impacts the city's operations but also lead to serious problems for people's physical and mental health, such as seasonal affective disorder due to vitamin D deficiency and sleep rhythm disturbances.  Current solutions mostly focus on the individual level, such as using "artificial sun lamps," but these solutions are often costly for individuals. Based on this, I proposed Sky Lighter, a public infrastructure solution envisioned for 50 years from now. It is not just a ground-based device, but a light energy recycling system that collects and stores high-energy sunlight during the polar day. When the polar night arrives, it projects simulated full-spectrum natural light into the sky, using atmospheric reflection to "recreate" sunlight for the entire city.</p>
+            <ul>
+      <h3>Initial Sketches</h3>
+        <img src="03.jpg" alt="Sky Lighter Overview Matrix">
+        </ul>
 
-    <h3>Process</h3>
-    <img src="04.jpg" alt="Perspective View">
+        <h3>The Building Process</h3>
+        <p> STEP 1: I added a sphere - deleted the vertices - "loop selection" - to create the umbrella shape. Tutorial: 
+https://b23.tv/zis3U5w </p>
+               <img src="11.png" alt="Sky Lighter Overview Matrix">
+  <ul></ul>
+             <p> STEP 2: I added another UV sphere and put it into the middle of the umbrella shape object. </p>
+               <img src="22.png" alt="Sky Lighter Overview Matrix">
 
-    <h3>My Design: Sky Lighter</h3>
-    <img src="05.jpg" alt="Detail Shot">
-    <img src="06.jpg" alt="Final Render">
+               <ul></ul>
+             <p> STEP 3: I used wireframe modifier to convert the geometry to a wireframe look.  </p>
+               <img src="44.png" alt="Sky Lighter Overview Matrix">
+
+               <ul></ul>
+             <p> STEP 4: I added  a cone and placed it in the middle of my wireframe object (also added a modifier as well).    </p>
+               <img src="55.png" alt="Sky Lighter Overview Matrix">
+
+                  <ul></ul>
+             <p> STEP 5: I adjusted the thickness, metallic, base color, and the other details to make it the effect I prefer.  </p>
+               <img src="66.png" alt="Sky Lighter Overview Matrix">
+
+
+                  <ul></ul>
+             <p> STEP 6: In the shader editor, I changed parts of the object into yellow and blue based on my preferences.  </p>
+               <img src="77.png" alt="Sky Lighter Overview Matrix">
+
+                     <ul></ul>
+             <p> STEP 7: I created two planes to use it as the background and ground for photography.  </p>
+               <img src="88.png" alt="Sky Lighter Overview Matrix">
+
+                      <ul></ul>
+             <p> STEP 8: Then, I added an image (starry night) as the background, then I adjusted the camera and light to make it looks clear and realistic, ready to render.  </p>
+               <img src="99.png" alt="Sky Lighter Overview Matrix">
+
+        <h3>Rendered Image: Sky Lighter</h3>
+          <img src="10.png" alt="Sky Lighter Overview Matrix">
+        <p>I chose a funnel-and-sphere form to represent the device’s foundation and core. At the center, a crystal sphere sends a warm glow that can light up the entire sky. The upward-facing structure is designed to maximize light capture during the summer months and to concentrate that light during the winter. By reflecting light off an artificial atmospheric layer, the system disperses daylight across the urban landscape, helping restore residents’ life rhythms.  In terms of material, I chose to use cold metal and reflective glass as the primary textures. These materials give Sky Lighter a distinctly futuristic presence. Also distinguish its functions so it's not simply as a ground station, but as an infrastructural lens between the city and the sky. </p>
+                     <h3>Other Exploration</h3>
+            <img src="12.png" alt="Sky Lighter Overview Matrix">
+                        
+    </div>
     
 </body>
 </html>
