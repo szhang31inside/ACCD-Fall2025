@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Materiality & Projection | Lisa</title>
+    <style>
+        :root {
+            --bg: #ffffff;
+            --text-main: #111;
+            --text-muted: #888;
+            --accent: #3498db;
+            --border: #ececec; /* slightly softer border */
+            --doc-bg: #fdfdfd;
+        }
+
+        body { 
+            background: var(--bg); color: var(--text-main); 
+            font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", sans-serif; 
+            margin: 0; display: flex; flex-direction: column; align-items: center;
+        }
+
+        .container { max-width: 1200px; width: 92%; padding: 80px 0; }
+
+        header { margin-bottom: 60px; padding-bottom: 20px; }
+        
+        h1 { font-weight: 700; font-size: 2.2rem; letter-spacing: -1px; margin: 0; text-transform: uppercase; border: none; }
+        h2 { font-weight: 400; font-size: 0.9rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 3px; margin-top: 10px; border: none; }
+
+        /* The main comparison grid (2 columns) */
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px 40px;
+            margin-bottom: 20px;
+        }
+
+        .visual-container {
+            width: 100%;
+            aspect-ratio: 1 / 1; 
+            overflow: hidden;
+            border: 1px solid var(--border);
+            background: #fcfcfc;
+        }
+
+        img, video { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+        .label {
+            font-size: 0.7rem; font-weight: 700; color: var(--text-muted);
+            margin-bottom: 8px; display: flex; justify-content: space-between;
+            font-family: monospace; text-transform: uppercase;
+        }
+
+        /* --- New: Process Grid (3 little images) --- */
+        .process-grid {
+            grid-column: span 2; /* takes full width below the studies */
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin-top: 25px;
+            margin-bottom: 10px; /* space before the text block */
+        }
+
+        .process-item {
+            width: 100%;
+            aspect-ratio: 16 / 10; /* slight rectangular shape for nodes/details */
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        /* --- Documentation Block --- */
+        .doc-space {
+            grid-column: span 2;
+            background: var(--doc-bg);
+            padding: 30px;
+            margin-bottom: 80px; /* space before the next pair */
+            border: 1px solid #f0f0f0;
+        }
+
+        .doc-label { 
+            font-size: 0.65rem; font-weight: 800; text-transform: uppercase; 
+            letter-spacing: 2px; color: var(--text-main); margin-bottom: 10px; display: block;
+        }
+
+        .doc-content { 
+            font-family: serif; font-style: italic; font-size: 1.05rem; 
+            line-height: 1.6; color: #444; margin: 0;
+        }
+
+        /* Projection section specific styles */
+        .section-header { margin-top: 120px; padding-top: 40px; border: none; }
+        .featured-item { grid-column: span 2; margin-bottom: 40px; }
+        .video-hint { font-size: 0.75rem; color: var(--accent); font-weight: bold; margin-bottom: 10px; text-transform: uppercase; }
+
+        footer { margin-top: 100px; padding: 40px 0; border-top: 1px solid var(--border); text-align: center; color: var(--text-muted); font-size: 0.8rem; letter-spacing: 2px; }
+
+        @media (max-width: 768px) { .comparison-grid { grid-template-columns: 1fr; } .doc-space, .process-grid, .featured-item { grid-column: span 1; } }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <header>
+            <h1>Digital Materiality</h1>
+            <h2>Iterative Archive: Studies 01 — 20</h2>
+        </header>
+
+        <section class="comparison-grid">
+            
+            <div class="work-item">
+                <div class="label"><span>Study 01</span><span>Static</span></div>
+                <div class="visual-container"><img src="1.jpg"></div>
+            </div>
+            <div class="work-item">
+                <div class="label"><span>Study 02</span><span>Motion</span></div>
+                <div class="visual-container"><video autoplay loop muted playsinline><source src="11.mp4"></video></div>
+            </div>
+            <div class="process-grid">
+                <div class="process-item"><img src="1.1.png"></div>
+                <div class="process-item"><img src="1.2.png"></div>
+                <div class="process-item"><img src="1.3.png"></div>
+            </div>
+            <div class="doc-space">
+                <span class="doc-label">Documentation</span>
+                <p class="doc-content">I began by creating a high-frequency noise texture and used Ramp and Level TOPs to increase the contrast, turning it into a sharper mask-like texture. Then, I introduced a second Noise TOP with a lower frequency to generate larger random forms. Using Displace TOP, I used the first noise texture to distort the second one, creating more irregular and edges. Finally, I refined the composition by adjusting the scale and positioning with Transform TOP before sending it to the final output.
+
+To create movement, I replaced static values in the Translate parameters using absTime.frame. The ty value creates a fast vertical movement. This makes the texture feel like it is flowing downward. I also adjusted the tz value  to create smoother transformations within the 3D noise space, this allows the shapes to evolve.</p>
+            </div>
+
+            <div class="work-item">
+                <div class="label"><span>Study 03</span><span>Static</span></div>
+                <div class="visual-container"><img src="2.jpg"></div>
+            </div>
+            <div class="work-item">
+                <div class="label"><span>Study 04</span><span>Motion</span></div>
+                <div class="visual-container"><video autoplay loop muted playsinline><source src="12.mp4"></video></div>
+            </div>
+            <div class="process-grid">
+                <div class="process-item"><img src="2.1.png"></div>
+                <div class="process-item"><img src="2.2.png"></div>
+                <div class="process-item"><img src="2.3.png"></div>
+            </div>
+            <div class="doc-space">
+                <span class="doc-label">Documentation Block II</span>
+                <p class="doc-content">In this iteration, I used a Feedback Loop and a Tile TOP. This transforms the visuals from isolated shapes into a more complex and repetitive pattern. This created a rhythmic digital texture that feels more layered and dynamic.
+
+To create movement, I added  (absTime.seconds * 10) to the Rotate parameter, this makes the texture to continuously spin over time. I also applied non-uniform scaling (1.5, 1.1) to stretch the feedback trails horizontally.</p>
+            </div>
+
+            <div class="work-item">
+                <div class="label"><span>Study 05</span><span>Static</span></div>
+                <div class="visual-container"><img src="3.jpg"></div>
+            </div>
+            <div class="work-item">
+                <div class="label"><span>Study 06</span><span>Motion</span></div>
+                <div class="visual-container"><video autoplay loop muted playsinline><source src="13.mp4"></video></div>
+            </div>
+            <div class="process-grid">
+                <div class="process-item"><img src="3.1.png"></div>
+                <div class="process-item"><img src="3.2.png"></div>
+                <div class="process-item"><img src="3.3.png"></div>
+            </div>
+            <div class="doc-space">
+                <span class="doc-label">Documentation</span>
+                <p class="doc-content">I started by using a Noise TOP to create large shapes, then added a second  noise layer that was adjusted with Ramp and Level nodes to create sharper textures. Using Displace TOP, I used the noise to distort the larger forms, creating more irregular surfaces. For the motion,  I added  absTime.frame to the Translate parameters. </p>
+            </div>
+
+            <div class="work-item">
+                <div class="label"><span>Study 07</span><span>Static</span></div>
+                <div class="visual-container"><img src="4.jpg"></div>
+            </div>
+            <div class="work-item">
+                <div class="label"><span>Study 08</span><span>Motion</span></div>
+                <div class="visual-container"><video autoplay loop muted playsinline><source src="14.mp4"></video></div>
+            </div>
+            <div class="process-grid">
+                <div class="process-item"><img src="4.1.png"></div>
+                <div class="process-item"><img src="4.2.png"></div>
+                <div class="process-item"><img src="4.3.png"></div>
+            </div>
+            <div class="doc-space">
+                <span class="doc-label">Documentation</span>
+                <p class="doc-content">I created this dreamy, planet-like texture by first using a Ramp TOP to shift the original noise into softer pink, purple, and off-white tones, giving it a biological feeling. I then used a Limit TOP to simplify the gradients into flatter areas of color. Through a Feedback loop, I added slight scaling and rotation in the Transform TOP, which allowed the texture to continuously grow and twist over time. Finally, I used a subtle Displace effect to add more surface details, creating a texture that feels similar to a planet or material.</p>
+            </div>
+
+            <div class="work-item">
+                <div class="label"><span>Study 09</span><span>Static</span></div>
+                <div class="visual-container"><img src="5.jpg"></div>
+            </div>
+            <div class="work-item">
+                <div class="label"><span>Study 10</span><span>Motion</span></div>
+                <div class="visual-container"><video autoplay loop muted playsinline><source src="15.mp4"></video></div>
+            </div>
+            <div class="process-grid">
+                <div class="process-item"><img src="5.1.png"></div>
+                <div class="process-item"><img src="5.2.png"></div>
+                <div class="process-item"><img src="5.3.png"></div>
+            </div>
+            <div class="doc-space">
+                <span class="doc-label">Documentation</span>
+                <p class="doc-content">In this exploration, I introduced audio-reactive controls to connect sound with the visuals. I used an Audio File In CHOP to bring in sound, then passed it through Analyze, Filter, and Math nodes to extract and smooth the audio data. This allowed the texture to respond to sound in real time. I also added a sine wave expression (math.sin(absTime.seconds)) to the Z-axis of the Noise TOP, which creates a breathing motion. Finally, I used Emboss and Threshold TOPs to add depth and create a rough surface texture.</p>
+            </div>
+
+            <div class="work-item">
+                <div class="label"><span>Study 11</span><span>Static</span></div>
+                <div class="visual-container"><img src="6.jpg"></div>
+            </div>
+            <div class="work-item">
+                <div class="label"><span>Study 12</span><span>Motion</span></div>
+                <div class="visual-container"><video autoplay loop muted playsinline><source src="16.mp4"></video></div>
+            </div>
+            <div class="process-grid">
+                <div class="process-item"><img src="6.1.png"></div>
+                <div class="process-item"><img src="6.2.png"></div>
+                <div class="process-item"><img src="6.3.png"></div>
+            </div>
+            <div class="doc-space">
+                <span class="doc-label">Documentation</span>
+                <p class="doc-content">For this texture, I used an Edge TOP to highlight the brightness change, this creates outlines that resemble cracks texture. I layered multiple noise textures together using an Add TOP. After applying Blur and Level nodes, I increased the contrast to create a black-and-white, ink-like texture, then used a Ramp TOP to change to a blue tones. To animate the piece, I adjusted the noise seed and movement speed so the smaller particles flicker quickly while the larger shapes move more slowly. This created the motion look like a feeling of seaside reefs.</p>
+            </div>
+
+            <div class="work-item">
+                <div class="label"><span>Study 13</span><span>Static</span></div>
+                <div class="visual-container"><img src="7.jpg"></div>
+            </div>
+            <div class="work-item">
+                <div class="label"><span>Study 14</span><span>Motion</span></div>
+                <div class="visual-container"><video autoplay loop muted playsinline><source src="17.mp4"></video></div>
+            </div>
+            <div class="process-grid">
+                <div class="process-item"><img src="7.1.png"></div>
+                <div class="process-item"><img src="7.2.png"></div>
+                <div class="process-item"><img src="7.3.png"></div>
+            </div>
+            <div class="doc-space">
+                <span class="doc-label">Documentation</span>
+                <p class="doc-content">In this iteration, I added a Rectangle TOP and rotated it by 45 degrees to create a diamond shape that acts as a visual frame. I adjusted the Fill Alpha and Background Alpha so the texture could partially show through the shape (layered effect). I also added an expression to the Border Width using math.sin(absTime.seconds * 3) to make the border pulse over time. Before combining the geometry with the texture, I used a Threshold TOP to create a strong black-and-white background, which helped the green diamond stand out more clearly.</p>
+            </div>
+
+            <div class="work-item">
+                <div class="label"><span>Study 15</span><span>Static</span></div>
+                <div class="visual-container"><img src="8.jpg"></div>
+            </div>
+            <div class="work-item">
+                <div class="label"><span>Study 16</span><span>Motion</span></div>
+                <div class="visual-container"><video autoplay loop muted playsinline><source src="18.mp4"></video></div>
+            </div>
+            <div class="process-grid">
+                <div class="process-item"><img src="8.1.png"></div>
+                <div class="process-item"><img src="8.2.png"></div>
+                <div class="process-item"><img src="8.3.png"></div>
+            </div>
+            <div class="doc-space">
+                <span class="doc-label">Documentation</span>
+                <p class="doc-content">I started by generating a noise texture. Using Displace TOP, I used the grain texture to distort the larger forms, creating more  material-like surfaces. To introduce motion, I replaced static values with Python expressions. The Y-axis created a fast vertical flow, while the Z-axis allowed the shapes to change. In the final stage, I added a Limit TOP and another Displace effect to break the texture apart further, creating a glitch-like visual that feels like a distorted digital signal.</p>
+            </div>
+
+            <div class="work-item">
+                <div class="label"><span>Study 17</span><span>Static</span></div>
+                <div class="visual-container"><img src="9.jpg"></div>
+            </div>
+            <div class="work-item">
+                <div class="label"><span>Study 18</span><span>Motion</span></div>
+                <div class="visual-container"><video autoplay loop muted playsinline><source src="19.mp4"></video></div>
+            </div>
+            <div class="process-grid">
+                <div class="process-item"><img src="9.1.png"></div>
+                <div class="process-item"><img src="9.3.png"></div>
+                <div class="process-item"><img src="9.2.png"></div>
+            </div>
+            <div class="doc-space">
+                <span class="doc-label">Documentation</span>
+                <p class="doc-content">I started with a vertical gradient using brown and green tones to create a metallic background. I then used a Mirror TOP to duplicate and reflect the gradient, creating a more balanced composition. Also, I added a Blur TOP softened the transitions between colors, making the texture feel more atmospheric. To create contrast, I added a semi-transparent green circle on top as a floating focal point. I animated the circle by using a Python expression (0.5 + math.sin(absTime.seconds * 0.5)) in the Center X parameter, this allows it to move smoothly back and forth across the screen..</p>
+            </div>
+
+            <div class="work-item">
+                <div class="label"><span>Study 19</span><span>Static</span></div>
+                <div class="visual-container"><img src="10.jpg"></div>
+            </div>
+            <div class="work-item">
+                <div class="label"><span>Study 20</span><span>Motion</span></div>
+                <div class="visual-container"><video autoplay loop muted playsinline><source src="20.mp4"></video></div>
+            </div>
+            <div class="process-grid">
+                <div class="process-item"><img src="10.1.png"></div>
+                <div class="process-item"><img src="10.2.png"></div>
+                <div class="process-item"><img src="10.3.png"></div>
+            </div>
+            <div class="doc-space">
+                <span class="doc-label">Documentation</span>
+                <p class="doc-content">For this image, I used a Lens Distort TOP to stretch the noise texture and create a tunnel-like effect, making the visuals feel like they are moving toward the viewer. I then used a Ramp TOP to map the texture into warm amber, black, and gold tones, creating a cosmic atmosphere. Before applying the distortion, I adjusted the scale with a Transform TOP to control the density of the texture and create larger empty spaces in the center..</p>
+            </div>
+
+        </section>
+
+        <header class="section-header">
+            <h1>Projection Mapping</h1>
+            <h2>Installation & Audio Performance</h2>
+        </header>
+
+        <section class="comparison-grid">
+            <div class="featured-item">
+                <div class="video-hint">Primary Installation Piece (MF.mp4 with sound)</div>
+                <div class="visual-container" style="aspect-ratio: 16/9;">
+                    <video controls poster="00.png">
+                        <source src="MF.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+
+            <div class="work-item"><div class="visual-container"><img src="p1.JPG"></div></div>
+            <div class="work-item"><div class="visual-container"><img src="p3.JPG"></div></div>
+
+            <div class="doc-space">
+                <span class="doc-label">Documentation: Physical Space</span>
+                <p class="doc-content">Testing the digital materiality on physical geometry using Kantan Mapper...
+                    I wanted to project three moving visuals onto walls at different distances, so I used Kantan Mapper to divide and map each animation into specific projection areas. Since the walls were positioned at different depths, I adjusted each mapped shape to fit the physical surfaces. This process allowed me to move the visuals beyond the screen and explore how digital textures interact with architectural space, scale, and viewer perception in a physical environment.
+                </p>
+            </div>
+
+            <div class="featured-item">
+                <div class="video-hint">Audio-Reactive Demonstration (OP.mp4)</div>
+                <div class="visual-container" style="aspect-ratio: 16/9;">
+                    <video controls><source src="op.mp4"></video>
+                </div>
+            </div>
+
+            <div class="work-item"><div class="visual-container"><img src="p4.png"></div></div>
+            <div class="work-item"><div class="visual-container"><img src="p5.png"></div></div>
+
+            <div class="doc-space">
+                <span class="doc-label">Documentation: Mapping Projection</span>
+                <p class="doc-content">Content → Kantan Mapper → Window COMP / projector fullscreen</p>
+            </div>
+        </section>
+
+    </div>
+
+</body>
+</html>

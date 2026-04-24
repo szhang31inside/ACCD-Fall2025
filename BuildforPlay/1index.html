@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TERMINAL: KILL CUBES</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@300;500;700&display=swap');
+
+        :root {
+            --neon-red: #ff3131;
+            --neon-cyan: #00f3ff;
+            --cyber-dark: #0a0b10;
+            --cyber-panel: #161b22;
+            --text-main: #e0e6ed;
+            --border-glow: 1px solid rgba(0, 243, 255, 0.3);
+        }
+
+        body {
+            background-color: var(--cyber-dark);
+            background-image: 
+                radial-gradient(circle at 50% 50%, rgba(20, 30, 48, 0.5) 0%, rgba(10, 11, 16, 1) 100%),
+                linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.2) 50%);
+            background-size: 100% 100%, 100% 4px;
+            margin: 0; padding: 0;
+            font-family: 'Rajdhani', sans-serif;
+            color: var(--text-main);
+            display: flex; flex-direction: column; align-items: center;
+        }
+
+        header {
+            width: 100%; padding: 40px 0; text-align: center;
+            border-bottom: var(--border-glow); background: rgba(0, 0, 0, 0.8);
+            margin-bottom: 40px; position: relative;
+        }
+
+        header h2 {
+            font-family: 'Orbitron', sans-serif; font-size: 2.5rem;
+            margin: 0; letter-spacing: 6px; color: var(--neon-cyan);
+            text-shadow: 0 0 15px var(--neon-cyan);
+        }
+
+        .main-container { width: 1100px; display: grid; grid-template-columns: 1fr 350px; gap: 30px; margin-bottom: 40px; }
+
+        .media-col { background: var(--cyber-panel); padding: 15px; border: var(--border-glow); clip-path: polygon(0 0, 97% 0, 100% 3%, 100% 100%, 3% 100%, 0 97%); }
+
+        .video-wrapper { margin-bottom: 20px; border-left: 4px solid var(--neon-red); background: #000; }
+        video { width: 100%; display: block; aspect-ratio: 16 / 9; }
+
+        .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+        .gallery-grid img { width: 100%; height: 75px; object-fit: cover; border: 1px solid rgba(255,255,255,0.1); }
+
+        .sidebar-col { background: var(--cyber-panel); padding: 25px; border: var(--border-glow); clip-path: polygon(10% 0, 100% 0, 100% 90%, 90% 100%, 0 100%, 0 10%); }
+        .main-capsule { width: 100%; border: 1px solid var(--neon-cyan); margin-bottom: 15px; }
+
+        .short-description { font-size: 14px; line-height: 1.6; color: #acb2b8; margin-bottom: 20px; }
+        .review-summary { font-size: 13px; color: #556772; margin-bottom: 15px; }
+        .review-summary span { color: var(--neon-cyan); font-weight: bold; }
+
+        .meta-data { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 15px; font-size: 12px; line-height: 2; color: #556772; }
+        .meta-data span { color: var(--neon-cyan); }
+
+        .buy-box-container {
+            width: 1100px; background: linear-gradient(90deg, #ff3131 0%, #800000 100%);
+            padding: 30px; display: flex; justify-content: space-between; align-items: center;
+            clip-path: polygon(2% 0, 100% 0, 98% 100%, 0 100%); margin-bottom: 50px;
+        }
+
+        .buy-box-container h3 { font-family: 'Orbitron', sans-serif; margin: 0; font-size: 1.5rem; color: white; }
+        .price { font-size: 1.8rem; font-weight: 800; margin-right: 20px; }
+        .btn-add-cart { background: white; color: black; padding: 12px 30px; text-decoration: none; font-weight: bold; clip-path: polygon(10% 0, 100% 0, 90% 100%, 0 100%); }
+
+        .details-section, .reviews-section { width: 1100px; margin-bottom: 60px; }
+        .content-block h2 { font-family: 'Orbitron', sans-serif; color: var(--neon-cyan); background: rgba(0,243,255,0.1); padding: 8px 15px; border-left: 4px solid var(--neon-cyan); font-size: 1rem; margin-bottom: 20px; }
+        .content-block p { font-size: 15px; line-height: 1.8; color: #bdc3c7; white-space: pre-line; margin-bottom: 30px; }
+
+        /* --- Reviews Redesign --- */
+        .review-card { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255,255,255,0.05); margin-bottom: 15px; display: grid; grid-template-columns: 200px 1fr; padding: 20px; }
+        .review-user { border-right: 1px solid rgba(255,255,255,0.1); padding-right: 15px; }
+        .review-body { padding-left: 20px; }
+        .review-header { display: flex; align-items: center; margin-bottom: 10px; color: var(--neon-cyan); font-weight: bold; }
+        .thumb-icon { font-size: 20px; margin-right: 10px; }
+        .review-text { color: #acb2b8; font-size: 14px; line-height: 1.6; }
+
+        @media (max-width: 1150px) { .main-container, .buy-box-container, .details-section, .reviews-section { width: 95%; } .main-container { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h2>TERMINAL: KILL CUBES</h2>
+    </header>
+
+    <div class="main-container">
+        <div class="media-col">
+            <div class="video-wrapper">
+                <video controls poster="00.png" playsinline><source src="Kill_Cubes.mp4" type="video/mp4"></video>
+            </div>
+            <div class="video-wrapper">
+                <video controls poster="11.png" playsinline><source src="Naomi.mp4" type="video/mp4"></video>
+            </div>
+            <div class="gallery-grid">
+                <img src="111.png" alt="View 1">
+                <img src="222.png" alt="View 2">
+                <img src="333.png" alt="View 3">
+                <img src="444.png" alt="View 4">
+            </div>
+        </div>
+
+        <div class="sidebar-col">
+            <img src="11.jpg" class="main-capsule" alt="Banner Image">
+            <div class="short-description">
+                Kill Cubes is a first-person tactical shooter. Set in a infinite simulation, you are tasked with one objective: Take down the Cubes.
+
+Using a custom-built hardware peripheral, players must physically aim, and eliminate waves of aggressive red cubes that threaten to destabilize the Virtual Space.
+            </div>
+            <div class="review-summary">Overall Reviews: <span>Positive</span> (4 reviews)</div>
+            <div class="meta-data">
+                RELEASE DATE: <span>Mar 28, 2026</span><br>
+                DEVELOPER: <span>Unity</span><br>
+                PUBLISHER: <span>Lisa (Shijing) Zhang</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="buy-box-container">
+        <h3>BUY KILL CUBES</h3>
+        <div class="buy-button-area">
+            <span class="price">FREE</span>
+            <a href="#" class="btn-add-cart">ADD TO CART</a>
+        </div>
+    </div>
+
+    <div class="details-section">
+        <div class="content-block">
+            <h2>CONCEPT</h2>
+            <p><strong>Kill Cubes</strong> Kill Cubes is a tactical shooter set within a controlled simulation, where geometric anomalies begin to disrupt system stability. Through Hardware-Integrated Combat, players interact with the game using a ESP32 controller, enabling a more direct and precise one-to-one connection between physical action and in-game response.</p>
+        </div>
+        
+        <div class="content-block">
+            <h2>KEY MECHANICS</h2>
+            <p>- The game is locked to your ESP32 controller and 3 Axis Gyroscope Sensor. If you tilt the controller in real life, the camera tilts in the game. To hit a target, you must physically point at it.
+            - The more Cubes that stay on screen, the more the "Virtual Dream Space" is occupied. 
+            - You are the "Anchor" of the system. You can't run away, you have to stand your ground and use your 360-degree rotation to stop the Cubes from surrounding you.</p>
+        </div>
+        
+        <div class="content-block">
+            <h2>BACKGROUND STORY</h2>
+            <p>In a future where people spend their lives in a perfect digital "Dream Space," the system has started to decay. This decay manifests as Red Cubes, corrupted blocks of data that consume everything they touch.
+
+You play as a System Cleaner. Armed with a weapon (your controller), you are "plugged in" to the core of the dream. Your job is simple, keep the system clean, and don't let the Cubes touch the core. If you fail, the dream ends.</p>
+        </div>
+    </div>
+
+    <div class="reviews-section">
+        <div class="content-block">
+            <h2>CUSTOMER REVIEWS</h2>
+            
+            <div class="review-card">
+                <div class="review-user">
+                    <strong>Gamer_Kerwin</strong><br>
+                    <span style="color:#556772; font-size:11px;">124 products in account</span>
+                </div>
+                <div class="review-body">
+                    <div class="review-header"><span class="thumb-icon">👍</span> RECOMMENDED</div>
+                    <div class="review-text">This is interesting, It feels a lot like playing with a console controller!</div>
+                </div>
+            </div>
+
+            <div class="review-card">
+                <div class="review-user"><strong>Gamer_Naomi</strong></div>
+                <div class="review-body">
+                    <div class="review-header"><span class="thumb-icon">👍</span> RECOMMENDED</div>
+                    <div class="review-text">Good idea. The controller is super responsive for aiming and changing directions! However, I found it a bit challenging to move around while aiming at the same time. Definitely takes some skill to master.</div>
+                </div>
+            </div>
+
+            <div class="review-card">
+                <div class="review-user"><strong>Gamer_Jess</strong></div>
+                <div class="review-body">
+                    <div class="review-header"><span class="thumb-icon">👍</span> RECOMMENDED</div>
+                    <div class="review-text">Easy to control and super fun!</div>
+                </div>
+            </div>
+
+            <div class="review-card">
+                <div class="review-user">
+                    <strong>Gamer_Lynn</strong><br>
+                    <span style="color:#556772; font-size:11px;">212 products in account</span>
+                </div>
+                <div class="review-body">
+                    <div class="review-header"><span class="thumb-icon">👍</span> RECOMMENDED</div>
+                    <div class="review-text">Great concept! If the developer could add a physical trigger button on the controller for shooting, it would be perfect. That way we wouldn't need to use the mouse at all.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
