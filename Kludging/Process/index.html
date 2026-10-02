@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Kludging as a Creative Approach to Technology</title>
+
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+
+    <div class="container">
+
+        <!-- HEADER -->
+        <header>
+            <h1>
+                Kludging as a Creative<br>
+                Approach to Technology
+            </h1>
+
+            <p class="subtitle">
+                Touch Designer Project Documentation
+            </p>
+        </header>
+
+
+        <!-- SYSTEM MAP -->
+        <section class="system-map-section">
+
+            <div class="label">
+                <span>System Diagram</span>
+                <span>Illustrated in Figma</span>
+            </div>
+
+            <div class="system-map-container">
+                <img src="systemmap.png" alt="System Map Architecture">
+            </div>
+
+            <div class="process-desc system-description">
+
+                <p>
+                    Based on the feedback, I really liked the suggestion of making
+                    the particles flow and move more dynamically. But I also want
+                    to explore creating a more 3D, spatial effect, where the movement
+                    and force detected from the viewer’s face can influence how the
+                    particles flow.
+
+                    <br><br>
+
+                    For the overall process, I start with a base image and extract
+                    its visual data and tree outlines, which are then translated
+                    into points and fed into the particle system. I add another
+                    depth layer to create a more spatial effect, while the camera
+                    captures the viewer’s movement through optical flow and uses
+                    that data to influence the particles in real time, with feedback
+                    allowing the movement to accumulate and leave traces over time.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <section class="comparison-grid">
+
+
+            <!-- VIDEO -->
+            <div class="featured-item">
+
+                <div class="video-hint">
+                    System Demonstration (YouTube Outcome)
+                </div>
+
+                <div class="visual-container video-container">
+
+                    <iframe
+                        src="https://www.youtube.com/embed/8qkmTZdeEMU?si=sD0Xxyfqn6Mo-LD5"
+                        title="YouTube video player"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>
+
+                </div>
+
+            </div>
+
+
+            <!-- OUTCOME 1 -->
+            <div class="work-item">
+
+                <div class="label">
+                    <span>Outcome</span>
+                    <span>View 1</span>
+                </div>
+
+                <div class="visual-container">
+                    <img src="01.JPG" alt="Outcome 1">
+                </div>
+
+            </div>
+
+
+            <!-- OUTCOME 2 -->
+            <div class="work-item">
+
+                <div class="label">
+                    <span>Outcome</span>
+                    <span>View 2</span>
+                </div>
+
+                <div class="visual-container">
+                    <img src="02.JPG" alt="Outcome 2">
+                </div>
+
+            </div>
+
+
+            <!-- OUTCOME 3 -->
+            <div class="work-item">
+
+                <div class="label">
+                    <span>Outcome</span>
+                    <span>View 3</span>
+                </div>
+
+                <div class="visual-container">
+                    <img src="03.JPG" alt="Outcome 3">
+                </div>
+
+            </div>
+
+
+            <!-- OUTCOME 4 -->
+            <div class="work-item">
+
+                <div class="label">
+                    <span>Outcome</span>
+                    <span>View 4</span>
+                </div>
+
+                <div class="visual-container">
+                    <img src="04.JPG" alt="Outcome 4">
+                </div>
+
+            </div>
+
+
+            <!-- PROJECT CONCEPT -->
+            <div class="doc-space">
+
+                <span class="doc-label">
+                    Project Concept
+                </span>
+
+                <p class="doc-content">
+                    This project was inspired by a piece of work by artist Dan Hoopert.
+                    I was drawn to the way light traces the outlines of a 2D image.
+                    Although I wasn’t able to recreate the same effect, I used it as
+                    a starting point to explore TouchDesigner’s particle system and
+                    experiment with adding more depth and interaction.
+
+                    <br><br>
+
+                    The core idea became exploring how a static 2D image could turn
+                    into a dynamic and spatial experience. By translating the image
+                    into particles, adding depth, and using the viewer’s movement to
+                    influence the particle flow, I wanted to make the image feel less
+                    like something we simply look at and more like something we can
+                    interact with and physically affect.
+                </p>
+
+            </div>
+
+
+            <!-- STAGE 1 -->
+            <div class="stage-label">
+
+                <div class="label">
+                    <span>Stage 1</span>
+                    <span></span>
+                </div>
+
+            </div>
+
+            <div class="process-single">
+                <img src="1.png" alt="Process 1">
+            </div>
+
+            <div class="process-desc">
+                <p>
+                    I started by experimenting with the Particle GPU to understand
+                    how particles behave and how I could control their movement.
+                    At this stage, I was mainly testing the system before connecting
+                    it to an image.
+                </p>
+            </div>
+
+
+            <!-- STAGE 2 -->
+            <div class="stage-label">
+
+                <div class="label">
+                    <span>Stage 2</span>
+                    <span></span>
+                </div>
+
+            </div>
+
+            <div class="process-single">
+                <img src="2.png" alt="Process 2">
+            </div>
+
+            <div class="process-desc">
+                <p>
+                    I processed the original image by removing the darker areas
+                    and keeping only the brighter parts.
+                </p>
+            </div>
+
+
+            <!-- STAGE 3 -->
+            <div class="stage-label">
+
+                <div class="label">
+                    <span>Stage 3</span>
+                    <span></span>
+                </div>
+
+            </div>
+
+            <div class="process-single">
+                <img src="3.png" alt="Process 3">
+            </div>
+
+            <div class="process-desc">
+                <p>
+                    I started connecting the processed image data to the Particle GPU
+                    and used ramps and Point Transform to control the position and
+                    distribution of the particles. The original image began to
+                    reappear through particles rather than pixels.
+                </p>
+            </div>
+
+
+            <!-- STAGE 4 -->
+            <div class="stage-label">
+
+                <div class="label">
+                    <span>Stage 4</span>
+                    <span></span>
+                </div>
+
+            </div>
+
+            <div class="process-single">
+                <img src="4.png" alt="Process 4">
+            </div>
+
+            <div class="process-desc">
+                <p>
+                    After getting the basic particle structure to work, I brought
+                    the colors from the original image back into the particles.
+                    This made the result more recognizable as the forest while
+                    still keeping the fragmented particle effect.
+                </p>
+            </div>
+
+
+            <!-- STAGE 5 -->
+            <div class="stage-label">
+
+                <div class="label">
+                    <span>Stage 5</span>
+                    <span></span>
+                </div>
+
+            </div>
+
+            <div class="process-single">
+                <img src="5.png" alt="Process 5">
+            </div>
+
+            <div class="process-desc">
+                <p>
+                    I also used DepthR to create a depth map of the original image,
+                    adding another layer to make the particles feel more
+                    three-dimensional. This shifted the project from recreating a
+                    flat 2D effect toward exploring more interesting perspectives
+                    and visual possibilities.
+                </p>
+            </div>
+
+
+            <!-- STAGE 6 -->
+            <div class="stage-label">
+
+                <div class="label">
+                    <span>Stage 6</span>
+                    <span></span>
+                </div>
+
+            </div>
+
+            <div class="process-single">
+                <img src="result.png" alt="Process 6">
+            </div>
+
+            <div class="process-desc">
+                <p>
+                    DepthR: https://depth-r.com/
+                </p>
+            </div>
+
+
+            <!-- STAGE 7 -->
+            <div class="stage-label">
+
+                <div class="label">
+                    <span>Stage 7</span>
+                    <span></span>
+                </div>
+
+            </div>
+
+            <div class="process-single">
+                <img src="6.png" alt="Process 7">
+            </div>
+
+            <div class="process-desc">
+                <p>
+                    I connected a camera and used Optical Flow to detect my movement.
+                    The interaction worked at first when the image was still 2D, but
+                    after I added the depth map, the particles stopped responding.
+
+                    Optical Flow can still detect my movement, but the movement no
+                    longer affects the image even when it is connected to the
+                    Particle GPU. I tried adjusting the setup several times, but it
+                    still isn’t working consistently.
+
+                    I’m still exploring and troubleshooting this interaction to
+                    understand how the movement data can work.
+                </p>
+            </div>
+
+
+            <!-- REFLECTION -->
+            <div class="doc-space reflection">
+
+                <span class="doc-label">
+                    Reflection
+                </span>
+
+                <p class="doc-content">
+                    This project started with the simple goal of recreating an effect
+                    that I found interesting, but the process gradually took me in a
+                    different direction. Through experimenting with particles, image
+                    processing, depth, and camera input, I began to understand
+                    TouchDesigner more through making and testing rather than
+                    following a fixed plan.
+
+                    <br><br>
+
+                    Not everything worked as I expected, especially the interaction
+                    after adding depth, but I think this became an important part of
+                    the process. Instead of focusing on recreating the original
+                    reference, I became more interested in how I could transform a
+                    static image into something more spatial and responsive. Moving
+                    forward, I want to continue exploring the connection between
+                    human movement and the 3D particle system, and see how the viewer
+                    can physically affect and reshape the image.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- FOOTER -->
+        <footer>
+            <p>LISA ZHANG | CREATIVE TECHNOLOGY 3</p>
+        </footer>
+
+    </div>
+
+</body>
+
+</html>
