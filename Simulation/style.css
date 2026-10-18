@@ -1,0 +1,381 @@
+
+:root {
+    --bg: #0a0a0a;
+    --text-main: #f5f5f7;
+    --text-muted: #888888;
+    --accent: #3b82f6;
+    --border: #292929;
+    --doc-bg: #121212;
+}
+
+/* =========================
+   GENERAL
+========================= */
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text-main);
+    font-family: 'Inter', -apple-system,
+        BlinkMacSystemFont, sans-serif;
+    margin: 0;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+}
+
+.container {
+    width: 92%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 0;
+}
+
+/* =========================
+   HEADER
+========================= */
+
+header {
+    text-align: center;
+    padding: 80px 0 60px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 60px;
+}
+
+h1 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    font-size: clamp(2.4rem, 5vw, 4.5rem);
+    letter-spacing: -2.5px;
+    line-height: 1.15;
+    margin: 0 0 25px;
+}
+
+.subtitle {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin: 0;
+}
+
+/* =========================
+   LABELS
+========================= */
+
+.label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+
+    color: var(--text-muted);
+    margin-bottom: 16px;
+}
+
+.label span:last-child:not(:first-child) {
+    font-weight: 400;
+}
+
+/* =========================
+   SYSTEM MAP
+========================= */
+
+.system-map-section {
+    width: 100%;
+    margin-bottom: 80px;
+}
+
+.system-map-container {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border: 1px solid var(--border);
+    background: #141414;
+}
+
+.system-map-container img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* =========================
+   MAIN LAYOUT
+========================= */
+
+.comparison-grid {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 0;
+}
+
+/* =========================
+   VIDEO
+========================= */
+
+.featured-item {
+    width: 100%;
+    margin: 0 auto 65px;
+}
+
+.video-hint {
+    width: 100%;
+    max-width: 1040px;
+    margin: 0 auto 16px;
+
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+}
+
+.video-container {
+    width: 100%;
+    max-width: 1040px;
+    aspect-ratio: 16 / 9;
+
+    margin: 0 auto;
+    overflow: hidden;
+
+    background: #000;
+    border: 1px solid var(--border);
+}
+
+.video-container iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* =========================
+   STAGE LABELS
+========================= */
+
+.stage-label {
+    width: 100%;
+    max-width: 1040px;
+    margin: 40px auto 16px;
+}
+
+.stage-label .label {
+    margin: 0;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+}
+
+/* =========================
+   STAGE IMAGES
+========================= */
+
+.process-single {
+    width: 100%;
+    max-width: 1040px;
+    aspect-ratio: 16 / 9;
+
+    margin: 0 auto;
+    overflow: hidden;
+
+    background: #141414;
+    border: 1px solid var(--border);
+}
+
+.process-single img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+/* =========================
+   PROCESS DESCRIPTION
+========================= */
+
+.process-desc {
+    width: 100%;
+    max-width: 1040px;
+
+    margin: 0 auto 55px;
+    padding: 26px 30px;
+
+    background: var(--doc-bg);
+    border: 1px solid var(--border);
+}
+
+.process-desc p {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 400;
+    line-height: 1.85;
+    color: #cccccc;
+    margin: 0;
+    white-space: pre-line;
+}
+
+.system-description {
+    max-width: 100%;
+    margin-top: 16px;
+    margin-bottom: 0;
+}
+
+/* =========================
+   DOCUMENTATION BLOCKS
+========================= */
+
+.doc-space {
+    width: 100%;
+    max-width: 1040px;
+
+    margin: 0 auto 65px;
+    padding: 32px;
+
+    background: var(--doc-bg);
+    border: 1px solid var(--border);
+}
+
+.doc-label {
+    display: block;
+    margin-bottom: 18px;
+
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-main);
+}
+
+.doc-content {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 400;
+    line-height: 1.85;
+    color: #cccccc;
+
+    margin: 0;
+    white-space: pre-line;
+}
+
+/* =========================
+   REFLECTION
+========================= */
+
+.reflection {
+    margin-top: 55px;
+    margin-bottom: 20px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    margin-top: 80px;
+    padding: 40px 0;
+
+    border-top: 1px solid var(--border);
+    text-align: center;
+}
+
+footer p {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+    margin: 0;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+    .container {
+        width: 94%;
+        padding: 25px 0;
+    }
+
+    header {
+        padding: 55px 0 40px;
+        margin-bottom: 40px;
+    }
+
+    h1 {
+        letter-spacing: -1.5px;
+    }
+
+    .subtitle {
+        font-size: 0.7rem;
+        letter-spacing: 2px;
+    }
+
+    .system-map-section {
+        margin-bottom: 45px;
+    }
+
+    .featured-item {
+        margin-bottom: 40px;
+    }
+
+    .video-container {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .stage-label {
+        margin-top: 28px;
+    }
+
+    .process-single {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .process-desc {
+        width: 100%;
+        padding: 20px;
+        margin-bottom: 35px;
+    }
+
+    .process-desc p,
+    .doc-content {
+        font-size: 0.9rem;
+        line-height: 1.75;
+    }
+
+    .doc-space {
+        padding: 22px;
+        margin-bottom: 45px;
+    }
+
+    .reflection {
+        margin-top: 35px;
+    }
+
+    footer {
+        margin-top: 50px;
+        padding: 30px 0;
+    }
+}

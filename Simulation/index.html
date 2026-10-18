@@ -1,0 +1,228 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kludging as a Creative Approach to Technology</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+<div class="container">
+
+    <!-- HEADER -->
+    <header>
+        <h1>Simulation and Design</h1>
+        <p class="subtitle">Touch Designer Project Documentation</p>
+    </header>
+
+    <!-- SYSTEM MAP -->
+    <section class="system-map-section">
+
+        <div class="label">
+            <span>System Diagram</span>
+            <span>Illustrated in Figma</span>
+        </div>
+
+        <div class="system-map-container">
+            <img src="0.png" alt="System Map Diagram">
+        </div>
+
+        <div class="process-desc system-description">
+            <p>
+This project is inspired by looking through a car window on a rainy night. Raindrops run down the glass, while streetlights appear blurred as colors in the background. When a finger touches the window, it interrupts the water and leaves a temporary trace.
+
+I recreated this experience as an interactive digital environment using light and movement. Through webcam hand tracking, viewers can interact with the flowing particles, changing their paths and leaving traces of light.
+
+This is my system map and drawings I did for the initial idea.
+            </p>
+        </div>
+    </section>
+
+    <section class="comparison-grid">
+
+        <!-- VIDEO -->
+        <div class="featured-item">
+            <div class="video-hint">
+                System Demonstration (Video)
+            </div>
+
+            <div class="video-container">
+                <iframe
+                    src="https://www.youtube.com/embed/zlrWpeWAjJ4"
+                    title="System Demonstration"
+                    loading="lazy"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen>
+                </iframe>
+            </div>
+        </div>
+
+        <!-- PROJECT CONCEPT -->
+        <div class="doc-space">
+            <span class="doc-label">Project Visualization</span>
+
+            <p class="doc-content">
+The flowing lines in the visuals simulate the trails left by raindrops sliding across a pane of glass, while the gradients of blue, purple, and pink simulate the blurred city lights seen on a rainy night. To enhance the sense of fluidity, I transformed the original grayscale particles into colorful gradients and applied a glow effect; I also slowed down their movement, making them appear more like raindrops intermingling with light.
+
+In terms of interaction, I replaced the simple circular light points with slowly rotating hexagons, representing the way raindrops refract light. These hexagons track the viewer’s palm, with their size adjusting based on how wide the hand is opened, integrating the user’s gestures into the visual composition.
+
+This project originated from a particle flow field example shown in class. Using TouchDesigner and MediaPipe hand-tracking technology. The entire system runs at 60 frames per second (FPS), allowing viewers to influence the flow of particles on screen in real time through their hand gestures.
+            </p>
+        </div>
+
+        <!-- STAGE 1 -->
+        <div class="stage-label">
+            <div class="label">
+                <span>Stage 1</span>
+            </div>
+        </div>
+
+        <div class="process-single">
+            <img src="1.png" alt="Process 1">
+        </div>
+
+        <div class="process-desc">
+            <p>
+I imported the MediaPipe TouchDesigner component to track the viewer’s hand through the webcam. The component can run face, pose, object and image models, but I kept only Detect hands and switched the rest off.
+            </p>
+        </div>
+
+        <!-- STAGE 2 -->
+        <div class="stage-label">
+            <div class="label">
+                <span>Stage 2</span>
+            </div>
+        </div>
+
+        <div class="process-single">
+            <img src="1.2.png" alt="Process 2">
+        </div>
+
+        <div class="process-desc">
+            <p>
+I started by experimenting with Noise TOPs to generate random visual patterns. I created noise_seed and connected it to seed_dots to produce scattered white dots, while noise_flow generated a colorful noise texture for later movement.
+            </p>
+        </div>
+
+        <!-- STAGE 3 -->
+        <div class="stage-label">
+            <div class="label">
+                <span>Stage 3</span>
+            </div>
+        </div>
+
+        <div class="process-single">
+            <img src="2.png" alt="Process 3">
+        </div>
+
+        <div class="process-desc">
+            <p>
+Next, I introduced a feedback loop using feedback1, displace1, fade, and comp_loop. The noise_flow texture was used to drive the displacement, so it continues to distort the previous frames. Through this process, the original dots began to stretch, accumulate, and form more complex patterns. Also, I used a fade effect to reduce the visibility of older frames, allowing the patterns to change rather than remain permanently on the screen. The resulting simulation produces flowing textures that resemble liquid surfaces. It is interesting to see how simple random dots can gradually develop into complex visual structures through repeated transformation.
+            </p>
+        </div>
+
+        <!-- STAGE 4 -->
+        <div class="stage-label">
+            <div class="label">
+                <span>Stage 4</span>
+            </div>
+        </div>
+
+        <div class="process-single">
+            <img src="3.png" alt="Process 4">
+        </div>
+
+        <div class="process-desc">
+            <p>
+I used MediaPipe to track my hand and extract the fingertip position through finger_raw and finger1. I then added lfo1, drop_hole, and hole_level to create a circular disturbance area, which is combined with the existing flow through comp_hole.
+
+The intended interaction is that when I move my finger in front of the camera, the circular area follows my fingertip and interrupts the flowing patterns around it. Instead of controlling individual particles, the finger creates a localized disturbance, temporarily clearing or changing the flow in that area. As the finger moves away, the simulation continues to evolve through its feedback loop.
+            </p>
+        </div>
+
+        <!-- STAGE 5 -->
+        <div class="stage-label">
+            <div class="label">
+                <span>Stage 5</span>
+            </div>
+        </div>
+
+        <div class="process-single">
+            <img src="4.png" alt="Process 5">
+        </div>
+
+        <div class="process-desc">
+            <p>
+I added ramp1, colorize, and glow to transform the grayscale patterns into a purple-blue environment. I also adjusted the circular interaction's rotation, color, and bloom intensity to create a softer, more dynamic glowing effect.
+            </p>
+        </div>
+
+        <!-- STAGE 6 -->
+        <div class="stage-label">
+            <div class="label">
+                <span>Stage 6</span>
+            </div>
+        </div>
+
+        <div class="process-single">
+            <img src="5.png" alt="Process 6">
+        </div>
+
+        <div class="process-desc">
+            <p>
+I further developed the finger interaction by linking the position and radius of drop_hole to the MediaPipe hand-tracking data. I also added rotation and subtle color changes to make the circular disturbance more dynamic.
+
+I introduced finger_speed, push, push_level, drop_inner, and hole_sharp to further experiment with the interaction effect. Finally, I added ramp1, colorize, and glow to transform the grayscale simulation into a purple-blue flowing environment with soft glowing edges
+            </p>
+        </div>
+
+        <!-- STAGE 7 -->
+        <div class="stage-label">
+            <div class="label">
+                <span>Stage 7</span>
+            </div>
+        </div>
+
+        <div class="process-single">
+            <img src="6.png" alt="Process 7">
+        </div>
+
+        <div class="process-desc">
+            <p>
+I combined the noise-driven flow, MediaPipe hand tracking, and circular disturbance into one interactive system. The background continues to evolve independently, while the viewer's finger movements introduce temporary changes to the flowing patterns, creating a responsive digital landscape.
+            </p>
+        </div>
+
+        <!-- REFLECTION -->
+        <div class="doc-space reflection">
+            <span class="doc-label">Reflection</span>
+
+            <p class="doc-content">
+My starting point was a particle flow field that a teacher showed in class, and my inspiration was raindrops on a car window at night. I wanted the world to feel like blurred lights and water paths seen through wet glass.
+
+The background are figurative. They are not a water simulation, but they borrow the look of trails (light on glass), and the palette references neon and traffic lights in the rain.
+
+My first idea was using my hands as blackhole to erase the background, like a finger wiping a window. However, after a few revision, it was still hard to see against the moving background, so I changed the approach. I tried a circle, a cross-shaped star and an orbiting satellite, and kept the hexagon because it was the clearest and rotated cleanly. I also reduced flicker by updating the random seed less often.
+
+The interaction is currently limited to one hand and one gesture. With more time, I would try to include both hands and more different gestures, so the hand disturbs the world itself instead of sitting on top of it. That would bring the project closer to the raindrop image I started with.
+            </p>
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>LISA ZHANG | CREATIVE TECHNOLOGY 3</p>
+    </footer>
+
+</div>
+</body>
+</html>
