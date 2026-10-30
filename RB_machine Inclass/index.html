@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Cocktail</title>
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            font-family: Arial, sans-serif;
+            background: #f6f1ea;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+        }
+
+        button {
+            font-size: 2rem;
+            padding: 16px 32px;
+            border: none;
+            border-radius: 12px;
+            background: #d85d4d;
+            color: white;
+            cursor: pointer;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+        }
+
+        button:hover {
+            background: #c54e3d;
+        }
+
+        #drinkInfo {
+            margin-top: 24px;
+            max-width: 420px;
+            text-align: left;
+        }
+
+        #drinkInfo img {
+            width: 100%;
+            border-radius: 10px;
+            display: block;
+            margin-bottom: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button id="startBtn">START!</button>
+        <div id="drinkInfo"></div>
+    </div>
+
+    <script>
+        const button = document.getElementById('startBtn');
+        const drinkInfo = document.getElementById('drinkInfo');
+
+        function getNasaImage() {
+            const fixedDate = '2024-01-01';
+            const nasaFallback = {
+                media_type: 'image',
+                url: 'https://science.nasa.gov/wp-content/themes/nasa-child/assets/images/nasa-logo@2x.png',
+                hdurl: 'https://science.nasa.gov/wp-content/themes/nasa-child/assets/images/nasa-logo@2x.png',
+                title: 'NASA Science',
+                explanation: 'NASA APOD is temporarily unavailable, so the NASA logo is shown as a fallback.'
+            };
+
+            return fetch(`https://api.nasa.gov/planetary/apod?api_key=9ck6tgKNhCM7XhdO4gasqOSc9lD4QXpihUJxwUh9&date=${fixedDate}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`NASA APOD request failed: ${response.status}`);
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('NASA APOD data:', data);
+                    return data && data.media_type === 'image' && data.url ? data : nasaFallback;
+                })
+                .catch(error => {
+                    console.error('NASA APOD error:', error);
+                    return nasaFallback;
+                });
+        }
+
+        button.addEventListener('click', () => {
+            fetch('https://www.thecocktaildb.com/api/json/v1/1/random.php')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Failed to fetch drink');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const drink = data.drinks[0];
+                    return getNasaImage().then(nasaData => ({ drink, nasaData }));
+                })
+                .then(({ drink, nasaData }) => {
+                    const nasaFallbackUrl = 'https://science.nasa.gov/wp-content/themes/nasa-child/assets/images/nasa-logo@2x.png';
+                    let nasaHtml = '';
+
+                    if (nasaData && nasaData.url) {
+                        nasaHtml = `
+                            <hr>
+                            <h3>NASA Science</h3>
+                            <img src="${nasaData.hdurl || nasaData.url}" alt="${nasaData.title}">
+                            <p><strong>${nasaData.title}</strong></p>
+                            <p>${nasaData.explanation}</p>
+                        `;
+                    } else {
+                        nasaHtml = `
+                            <hr>
+                            <h3>NASA Science</h3>
+                            <img src="${nasaFallbackUrl}" alt="NASA logo">
+                            <p><strong>NASA Science</strong></p>
+                        `;
+                    }
+
+                    drinkInfo.innerHTML = `
+                        <h2>${drink.strDrink}</h2>
+                        <img src="${drink.strDrinkThumb}" alt="${drink.strDrink}">
+                        <p><strong>Category:</strong> ${drink.strCategory}</p>
+                        <p><strong>Instructions:</strong> ${drink.strInstructions}</p>
+                        ${nasaHtml}
+                    `;
+                })
+                .catch(error => {
+                    console.error(error);
+                    drinkInfo.textContent = 'Could not load a drink right now.';
+                });
+        });
+    </script>
+</body>
+</html>

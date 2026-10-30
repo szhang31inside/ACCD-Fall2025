@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Daily Dog</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="paper">
+
+    <div class="topbar">
+      <span>LISA ZHANG</span>
+  
+      <nav>
+        <a href="index.html" class="active">Front Page</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+
+    <header class="masthead">
+      <h1>THE DAILY DOG</h1>
+      <p class="tagline">A Digital Rube Goldberg Press Powered by Web Services</p>
+      <p class="dateline" id="dateline"></p>
+    </header>
+
+    <div class="rule-double"></div>
+
+    <div class="start-row">
+      <button id="startBtn">Stop the Presses ▸ Start Chain</button>
+    </div>
+
+    <section class="wire">
+      <h4>Wire Service Bulletins (Server Chain Reactions)</h4>
+      <ol id="chainLog" class="chain-log"></ol>
+    </section>
+
+    <main id="result" class="result hidden">
+      <div class="headline-block">
+        <p class="kicker">Breaking · Breed Report</p>
+        <h2 id="breedName"></h2>
+      </div>
+
+      <div class="columns">
+        <figure class="photo">
+          <img id="dogImg" alt="A random dog" />
+          <figcaption>Fig. 1 — Photographed by the Dog CEO bureau.</figcaption>
+        </figure>
+
+        <article class="story">
+          <p class="kicker">From the Encyclopaedia</p>
+          <p id="breedInfo" class="info"></p>
+        </article>
+      </div>
+
+      <div class="rule-thin"></div>
+
+      <section id="movieCard" class="movie-card hidden">
+        <p class="kicker center">Entertainment Supplement · Breed-Triggered Feature</p>
+        <div class="movie-grid">
+          <img id="moviePoster" alt="Movie poster" />
+          <div class="movie-text">
+            <h3 id="movieTitle"></h3>
+            <p id="movieMeta" class="meta"></p>
+            <video id="moviePreview" controls preload="none"></video>
+            <a id="movieLink" target="_blank" rel="noopener">Read the full review ↗</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="rule-double"></div>
+      <p>Printed by three servers working in sequence · No dogs were harmed</p>
+    </footer>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

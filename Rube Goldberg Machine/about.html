@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About · The Daily Dog</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="paper about">
+
+    <div class="topbar">
+      <span>VOL. I · NO. 1</span>
+      <span>EDITORIAL PAGE</span>
+      <nav>
+        <a href="index.html">Front Page</a>
+        <a href="about.html" class="active">About</a>
+      </nav>
+    </div>
+
+    <header class="masthead">
+      <h1>The Editorial</h1>
+      <p class="tagline">A Rube Goldberg press made of web services</p>
+    </header>
+    <div class="rule-double"></div>
+
+    <h2>Description</h2>
+    <p>
+      The Daily Dog is a digital Rube Goldberg machine constructed from interconnected web services. A single user click triggers a sequential domino effect: a random canine image is retrieved, its breed name is parsed directly from the URL payload, handed off to Wikipedia to fetch encyclopedic context, and simultaneously used to query a film database. The result is a dynamically assembled newspaper front page where a discovered dog breed directly dictates the feature film broadcast in the entertainment section.
+    </p>
+
+    <h2>Diagram of the mechanics</h2>
+    <!-- 自制流程图的图片放置区域：把你的图片命名为 diagram.png（或修改 src），和 html 放在同目录下即可 -->
+    <figure class="diagram-placeholder">
+      <img src="diagram.png" alt="Custom Rube Goldberg Machine Diagram" />
+      <figcaption>Fig. 2 — Schematic diagram of the digital chain reaction.</figcaption>
+    </figure>
+
+
+    <h3>What kind of data is passed around?</h3>
+    <p>The system passes different types of data between web services, including image URLs, dog breed names (such as "husky" or "dalmatian"), Wikipedia descriptions, and movie information such as titles, genres, release years, posters, and video previews.
+
+    <h3>Which services are chained together, and what is unexpected?</h3>
+    <p>I connected three services: Dog CEO API, Wikipedia API, and iTunes Search API. What interests me is how a randomly generated dog image can lead to unexpected connections with films. By using the dog breed as a search term, the system brings together information from unrelated sources and turns it into a newspaper issue.
+    <h3>What do the trigger and the end result look like?</h3>
+    <p>The interaction begins with a single button, "Stop the Presses ▸ Start." Once clicked, it triggers a chain of requests between the three APIs. The final result is a dynamically generated newspaper front page, where the selected dog determines the main story and the film featured in the entertainment section.
+
+
+    <div class="rule-double" style="margin-top:30px"></div>
+  </div>
+</body>
+</html>
