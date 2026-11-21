@@ -1,0 +1,519 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Wanderer & Turner — Synthetic Relationships project documentation">
+
+  <title>Wanderer & Turner — Synthetic Relationships</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <main class="container">
+
+    <!-- HEADER -->
+    <header>
+      <h1>
+        Wanderer <span class="highlight-creative">&amp;</span> Turner
+      </h1>
+      <p class="subtitle">
+        Synthetic Relationships · Creative Technology 3
+      </p>
+    </header>
+
+
+    <!-- 01 / SYSTEM DEMONSTRATION -->
+    <section class="section" id="demonstration">
+
+      <div class="label">
+        <span>01 / System Demonstration</span>
+        <span>Final Outcome</span>
+      </div>
+
+      <div class="video-container">
+        <video controls playsinline preload="metadata"
+          aria-label="Wanderer and Turner final system demonstration">
+          <source src="video.mp4" type="video/mp4">
+          Your browser does not support HTML5 video.
+        </video>
+      </div>
+
+    </section>
+
+
+    <!-- 02 / PROJECT CONCEPT -->
+    <section class="doc-space section" id="concept">
+
+      <span class="doc-label">02 / Project Concept</span>
+
+      <p class="doc-content">
+        Wanderer &amp; Turner is a communication system between two
+        electronic beings with different ways of perceiving and
+        expressing information. Wanderer experiences movement as
+        a continuous position in two-dimensional space, while
+        Turner translates spatial data into a limited set of
+        physical directions and speeds.
+      </p>
+
+      <p class="doc-content">
+        The two machines exchange messages through Adafruit IO,
+        but they do not share the same language. Humans observe
+        the machines' outputs and respond through physical actions,
+        which becomes part of the communication loop. With every
+        translation, some information is preserved and some
+        are lost.
+      </p>
+
+    </section>
+
+
+    <!-- 03 / COMMUNICATION DIAGRAM -->
+    <section class="section" id="diagram">
+
+      <div class="label">
+        <span>03 / Communication Diagram</span>
+        <span></span>
+      </div>
+
+      <div class="system-map-container">
+        <img
+          src="diagram.png"
+          alt="Communication diagram showing the exchange between Wanderer and Turner"
+          onerror="this.style.display='none'; this.parentElement.classList.add('missing-diagram');"
+        >
+
+        <div class="diagram-placeholder" aria-hidden="true">
+          <span>COMMUNICATION DIAGRAM</span>
+          <small>Replace with diagram.png · 16:9 recommended</small>
+        </div>
+      </div>
+
+      <p class="media-caption">
+        Joystick → X,Y coordinates → Servo movement →
+        Human interpretation → Button response →
+        LED flashes → Joystick.
+      </p>
+
+    </section>
+
+
+    <!-- 04 / TWO WORLDVIEWS -->
+    <section class="section" id="worldviews">
+
+      <div class="label">
+        <span>04 / Two Worldviews</span>
+        <span>Perception &amp; Expression</span>
+      </div>
+
+      <div class="comparison-grid">
+
+        <!-- MACHINE A -->
+        <article class="info-panel">
+
+          <h2>Machine A <span>Wanderer</span></h2>
+
+          <p>
+            Wanderer perceives a continuous two-dimensional
+            space through a joystick. Each movement shifts a
+            virtual pen.
+            A kaleidoscopic visualization makes these movements
+            visible.
+          </p>
+
+          <p>
+            At the end of a turn, Wanderer sends only the
+            pen's final X,Y coordinates (0–4095 for each axis),
+            not the complete drawing path.
+          </p>
+
+          <div class="mini-label">
+            INPUT / Joystick &nbsp; · &nbsp;
+            OUTPUT / Coordinates + LED
+          </div>
+
+        </article>
+
+
+        <!-- MACHINE B -->
+        <article class="info-panel">
+
+          <h2>Machine B <span>Turner</span></h2>
+
+          <p>
+            Turner interprets the received coordinates as
+            three possible directions and three movement speeds.
+            Its servo translates the data into a physical gesture.
+          </p>
+
+          <p>
+            One participant observes the servo's direction and
+            responds using two buttons. The response represents
+            direction rather than the original coordinates
+            or speed.
+          </p>
+
+          <div class="mini-label">
+            INPUT / Coordinates + Buttons &nbsp; · &nbsp;
+            OUTPUT / Servo
+          </div>
+
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- 05 / INTERACTION RULES -->
+    <section class="section" id="rules">
+
+      <div class="label">
+        <span>05 / Interaction Rules</span>
+        <span>Encoding &amp; Decoding</span>
+      </div>
+
+      <div class="rule-grid">
+
+        <!-- RULE 01 -->
+        <article class="rule-panel">
+
+          <span class="rule-number">
+            01 / Wanderer → Turner
+          </span>
+
+          <h3>Coordinates become movement</h3>
+
+          <p>
+            Wanderer sends the final pen position as X,Y.
+            Turner maps X to servo direction and Y to servo speed.
+          </p>
+
+          <table>
+            <thead>
+              <tr>
+                <th>X range</th>
+                <th>Direction</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>0–1365</td><td>Left · 30°</td></tr>
+              <tr><td>1366–2730</td><td>Center · 90°</td></tr>
+              <tr><td>2731–4095</td><td>Right · 150°</td></tr>
+            </tbody>
+          </table>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Y range</th>
+                <th>Speed</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>0–1365</td><td>Slow</td></tr>
+              <tr><td>1366–2730</td><td>Normal</td></tr>
+              <tr><td>2731–4095</td><td>Fast</td></tr>
+            </tbody>
+          </table>
+
+        </article>
+
+
+        <!-- RULE 02 -->
+        <article class="rule-panel">
+
+          <span class="rule-number">
+            02 / Turner → Wanderer
+          </span>
+
+          <h3>Movement becomes a response</h3>
+
+          <p>
+            Once the servo stops, the participant observes
+            its direction and presses the corresponding button.
+          </p>
+
+          <table>
+            <thead>
+              <tr>
+                <th>Observed direction</th>
+                <th>Button response</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>Left</td><td>Button 1</td></tr>
+              <tr><td>Center</td><td>Buttons 1 + 2</td></tr>
+              <tr><td>Right</td><td>Button 2</td></tr>
+            </tbody>
+          </table>
+
+          <p>
+            Wanderer decodes the button response into an LED
+            instruction.
+          </p>
+
+        </article>
+
+      </div>
+
+
+      <!-- COMPLETING THE LOOP -->
+      <div class="doc-space compact">
+
+        <span class="doc-label">
+          03 / Completing the Loop
+        </span>
+
+        <p class="doc-content">
+          The participant at Wanderer reads the LED instruction
+          and moves the joystick again. The next final coordinate
+          begins another cycle. The system relies on turn-taking
+          rather than simultaneous conversation.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- 06 / DESIGN DECISIONS -->
+    <section class="section" id="decisions">
+
+      <div class="label">
+        <span>06 / Design Decisions</span>
+        <span>Responding to the Brief</span>
+      </div>
+
+      <div class="decision-list">
+
+        <div>
+          <h3>Environment</h3>
+          <p>
+            Both devices stay in one place and rely on human interaction.
+             They are connected through Wi-Fi and Adafruit IO. 
+             This allow them to exchange information with each other.
+          </p>
+        </div>
+
+        <div>
+          <h3>Different Worldviews</h3>
+          <p>
+            Wanderer works with continuous spatial positions,
+            Turner works with discrete directions and speeds.
+            The difference determines how each machine
+            interprets messages.
+          </p>
+        </div>
+
+        <div>
+          <h3>Transmission &amp; Timing</h3>
+          <p>
+            Messages are exchanged intermittently at the end
+            of each turn. The devices take turns responding.
+          </p>
+        </div>
+
+        <div>
+          <h3>Perceptibility</h3>
+          <p>
+            The kaleidoscope, servo, buttons, and LED allow people 
+            to see how the two machines communicate. However, 
+            without knowing the rules, it can be difficult to 
+            understand what each signal means.
+          </p>
+        </div>
+
+        <div>
+          <h3>Human Participation</h3>
+          <p>
+            Human participants are not simply viewers.We observe,
+            interpret, and act on machine outputs. Our responses become part of the communication loop.
+          </p>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- 07 / PROCESS & ITERATIONS -->
+    <section class="section" id="process">
+
+      <div class="label">
+        <span>07 / Process &amp; Iterations</span>
+        <span>Development Notes</span>
+      </div>
+
+      <div class="timeline">
+
+        <!-- STAGE 01 -->
+        <article class="stage">
+          <span class="stage-index">STAGE 01</span>
+          <div>
+            <h3>Joystick &amp; Spatial Drawing</h3>
+            <p>
+              We started by experimenting with the joystick to
+              control a virtual pen on a webpage. Instead of having
+              the pen return to the center when the joystick was
+              released, we wanted its position to accumulate over
+              time. This allowed each movement to leave a trace
+              and gradually build up the drawing.
+            </p>
+          </div>
+        </article>
+
+
+        <!-- STAGE 02 -->
+        <article class="stage">
+          <span class="stage-index">STAGE 02</span>
+          <div>
+            <h3>Kaleidoscope &amp; Communication</h3>
+            <p>
+              After getting the joystick interaction to work,
+              we developed the drawing into a kaleidoscope effect.
+              We also started connecting the two ESP32 boards
+              through Adafruit IO so they could exchange data.
+            </p>
+            <p>
+              At this stage, we were mainly testing how the
+              information could be sent between the two machines
+              and how frequently they should communicate.
+            </p>
+          </div>
+        </article>
+
+
+        <!-- STAGE 03 -->
+        <article class="stage">
+          <span class="stage-index">STAGE 03</span>
+          <div>
+            <h3>Different Ways of Communicating</h3>
+            <p>
+              We wanted the two machines to communicate in
+              different ways rather than simply sending the
+              same information back and forth.
+            </p>
+            <p>
+              We first tried using rhythm and timing as a way for the two machines to communicate. However, we found that the delay in Adafruit IO made it difficult to keep the rhythm consistent. So we decided to use directions instead, allowing the coordinates to control the servo's movement.
+            </p>
+          </div>
+        </article>
+
+
+        <!-- STAGE 04 -->
+        <article class="stage">
+          <span class="stage-index">STAGE 04</span>
+          <div>
+            <h3>Follow the Servo</h3>
+            <p>
+              At first, I designed the two buttons as Accept
+              and Retry. However, I realized that these responses
+              didn't really tell the other machine what to do next.
+            </p>
+            <p>
+              We changed the interaction so that the participant
+              would observe the servo's direction and press the
+              corresponding button. This made the response more
+              directly connected to the information received
+              from Wanderer.
+            </p>
+          </div>
+        </article>
+
+
+        <!-- STAGE 05 -->
+        <article class="stage">
+          <span class="stage-index">STAGE 05</span>
+          <div>
+            <h3>Completing the Loop</h3>
+            <p>
+              Finally, we connected the button responses back
+              to Wanderer through LED flashes, which
+              the participant can interpret before moving the
+              joystick again.
+            </p>
+            <p>
+              We also adjusted the timing of each interaction
+              to make the turn-taking clearer. With this final
+              step, the two machines could continue exchanging
+              information through a complete communication loop.
+            </p>
+          </div>
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- 08 / LOST IN TRANSLATION -->
+    <section class="doc-space section" id="translation">
+
+      <span class="doc-label">
+        08 / Lost in Translation
+      </span>
+
+      <p class="doc-content">
+       When we move the joystick, it creates a continuous drawing, but Wanderer only sends the final coordinates to Turner. Turner then translates them into the servo's direction and speed. When the participant presses a button to respond, only the direction is kept. This is then translated into LED flashes, so some of the original information is lost along the way.
+      </p>
+
+      <p class="doc-content">
+        For example, a final position of (3500, 800) becomes
+        a slow rightward servo movement. The participant presses
+        Button 2, which returns to Wanderer as three long LED
+        flashes. The next participant knows to move right,
+        but cannot reconstruct the original drawing.
+      </p>
+
+      <p class="doc-content emphasis">
+        The message returns, but not in its original form.
+      </p>
+
+    </section>
+
+
+    <!-- 09 / REFLECTION -->
+    <section class="doc-space section" id="reflection">
+
+      <span class="doc-label">
+        09 / Reflection
+      </span>
+
+      <p class="doc-content">
+        This project explores communication between beings
+        that do not perceive the world in the same way.
+        Although Wanderer and Turner can exchange data,
+        each interprets the message through its own limited
+        system of sensing and expression.
+      </p>
+
+      <p class="doc-content">
+        The human participants become translators within this
+        relationship. Rather than to reproduce a message,
+        the system sustains an exchange through
+        transformations. We came to see communication not simply
+        as accurate transmission, but as a process of interpretation
+        in which meaning changes along the way.
+      </p>
+
+    </section>
+
+
+    <!-- FOOTER -->
+    <footer>
+      WANDERER &amp; TURNER | CREATIVE TECHNOLOGY 3
+    </footer>
+
+  </main>
+
+</body>
+</html>
